@@ -1,3 +1,4 @@
+
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>mygroupid</groupId>
@@ -8,16 +9,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-
-      <dependency>
-          <groupId>org.json</groupId>
-          <artifactId>json</artifactId>
-          <version>20210307</version>
-      </dependency>
-
-
-      
       <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20210307</version>
     </dependency>
   </dependencies>
 </project>
