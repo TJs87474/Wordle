@@ -35,7 +35,9 @@ public class Main {
       wordle.addGuessTotal();
       wordle.printAttempt();
       
+     
       
     }
+
   }
 }
