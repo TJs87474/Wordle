@@ -98,7 +98,36 @@ public class Wordle extends PlayerInfo implements Resetable {
         this.word = getWordFromAPI(this.word.length());  // Fetch a new word based on the word length
     }
 
-    public String toString() {
+    public void setGuess(String guess) {
+    this.guess = guess.toLowerCase();
+    this.attemptsUsed++;
+}
+
+public void addGuessTotal() {
+    this.guessTotal++;
+}
+
+public boolean isGameOver() {
+    return attemptsUsed >= MAX_ATTEMPTS || guess.equals(word);
+}
+
+public void printAttempt() {
+    System.out.println("Attempt " + attemptsUsed + " of " + MAX_ATTEMPTS);
+    for (int i = 0; i < word.length(); i++) {
+        if (i < guess.length()) {
+            if (guess.charAt(i) == word.charAt(i)) {
+                System.out.print("🟩"); // Correct letter, correct position
+            } else if (word.contains(String.valueOf(guess.charAt(i)))) {
+                System.out.print("🟨"); // Correct letter, wrong position
+            } else {
+                System.out.print("⬜"); // Letter not in word
+            }
+        }
+    }
+    System.out.println();
+}
+
+public String toString() {
         String gameOver = isGameOver() ? "over" : "not over";
         return String.format(
             "%s Word: %s, Current Guess: %s, Attempts Used: %d, Total guesses: %d, This game is %s", super.toString(), this.word, this.guess, this.attemptsUsed, this.guessTotal, gameOver);
